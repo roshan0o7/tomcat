@@ -15,7 +15,6 @@ pipeline {
         stage('sonarqube analysis') {
             environment {
             SCANNER_HOME = tool 'SonarQube'
-
             PROJECT_NAME = "Java-maven"
         }
         steps {
