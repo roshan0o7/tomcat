@@ -34,7 +34,7 @@ pipeline {
             }
         }
         stage ('post build') {
-            step {
+            steps {
                 sh "echo "build Passed""
                 sh "echo "Hello""
             }
