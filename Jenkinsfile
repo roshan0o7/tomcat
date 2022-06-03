@@ -7,11 +7,6 @@ pipeline {
                 git 'https://github.com/Akshay369vm/java-tomcat-maven-example.git'
             }
         }
-        stage ('build') {
-            steps {
-                sh "mvn package"
-            }
-        }
         stage('sonarqube analysis') {
             environment {
             SCANNER_HOME = tool 'SonarQube'
@@ -24,6 +19,11 @@ pipeline {
                     -Dsonar.java.binaries=\"target/classes/\"'''
                 }
             }
+            }
+        }
+        stage ('build') {
+            steps {
+                sh "mvn package"
             }
         }
         stage('deploy'){
