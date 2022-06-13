@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage ('SCM chekout') {
+        stage ('SCM checkout') {
             steps {
                 git 'https://github.com/Akshay369vm/java-tomcat-maven-example.git'
             }
