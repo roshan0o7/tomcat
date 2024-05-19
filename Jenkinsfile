@@ -20,13 +20,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -s pom.xml -DskipTests install'
-            }
-            post {
-                success {
-                    echo "Now Archiving."
-                    archiveArtifacts artifacts: '**/*.war'
-                }
+                sh 'mvn package'
             }
         }
         stage('CODE ANALYSIS with SONARQUBE') {
@@ -59,7 +53,7 @@ pipeline {
                         artifacts: [
                             [artifactId: 'vproapp' ,
                             classifier: '',
-                            file: 'target/vprofile-v2.war',
+                            file: 'target/java-tomcat-maven-example.war',
                             type: 'war']
                         ]
                     )
